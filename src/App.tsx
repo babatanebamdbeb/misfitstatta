@@ -4,11 +4,12 @@ import Two from './assets/two.jpeg'
 import Three from './assets/three.jpeg'
 
 import { useState } from "react";
-import { Link} from 'react-router';
-import { FaInstagram,FaFacebookF  } from 'react-icons/fa';
+import { Link } from 'react-router';
+import { FaInstagram, FaFacebookF } from 'react-icons/fa';
+import { LiaTimesSolid } from 'react-icons/lia';
 
 
-function App() { 
+function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -97,13 +98,15 @@ const Modal = ({ isOpen, onClose }: any) => {
     >
       <div>
         <div className="modal-content border-none" style={{ backgroundColor: "#fff" }}>
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-          <h3 className="text-center mt-8">
+          <div className="flex items-center justify-end">
+            <button
+              type="button"
+              className="btn-close "
+              onClick={()=>onClose()}
+            >
+              <LiaTimesSolid className='text-xl' />
+            </button>
+          </div>          <h3 className="text-center mt-8">
             Vote with Prefered Platform
           </h3>
           <div
@@ -113,13 +116,13 @@ const Modal = ({ isOpen, onClose }: any) => {
               to="/instagram"
               className='bg-[#ee3102] text-white py-4 flex items-center gap-4 px-6 rounded-lg text-base'
             >
-                   <FaInstagram className='text-lg' /> Instagram
+              <FaInstagram className='text-lg' /> Instagram
             </Link>
             <Link
               to="/facebook"
               className='bg-[#0c79cd] text-white py-4 flex items-center gap-4 px-6 rounded-lg text-base'
             >
-               <FaFacebookF className='text-lg' />Facebook</Link>
+              <FaFacebookF className='text-lg' />Facebook</Link>
           </div>
         </div>
       </div>
